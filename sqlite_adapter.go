@@ -5,18 +5,17 @@ import (
 	"fmt"
 	"strings"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 // SQLiteAdapter implements DatabaseAdapter for SQLite
 type SQLiteAdapter struct{}
 
 func (a *SQLiteAdapter) Connect(connectionString string) (*sql.DB, error) {
-	return sql.Open("sqlite3", connectionString)
+	return sql.Open("sqlite", connectionString)
 }
 
 func (a *SQLiteAdapter) GetConnectStringFromURL(url string) string {
-	// For SQLite, remove sqlite:// prefix if present
 	if strings.HasPrefix(url, "sqlite://") {
 		return url[9:]
 	}

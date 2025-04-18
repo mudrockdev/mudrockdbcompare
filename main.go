@@ -9,11 +9,11 @@ import (
 func main() {
 	if len(os.Args) < 4 {
 		fmt.Println("Usage: mudrockdbcompare [db-type] [source-connection-string] [target-connection-string]")
-		fmt.Println("supported database types: mysql")
+		fmt.Println("supported database types: mysql, sqlite")
 		fmt.Println("Examples:")
 		fmt.Println("  mudrockdbcompare mysql \"user:password@localhost:3306/dbname1\" \"user:password@localhost:3306/dbname2\"")
 		fmt.Println("  mudrockdbcompare postgres \"postgres://user:password@localhost/dbname1\" \"postgres://user:password@localhost/dbname2\"")
-		fmt.Println("  mudrockdbcompare sqlite \"file:db1.sqlite\" \"file:db2.sqlite\"")
+		fmt.Println("  mudrockdbcompare sqlite \"path/to/db1.db\" \"path/to/db2.db\"")
 		return
 	}
 
