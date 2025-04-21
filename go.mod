@@ -1,4 +1,4 @@
-module mudrockdbcompare
+module github.com/mudrockdev/mudrockdbcompare
 
 go 1.23.8
 
