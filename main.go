@@ -135,21 +135,12 @@ func main() {
 	// Complete progress
 	fmt.Println("Progress: 100%")
 
-	// Compare and report schema differences
-	if len(missingTables) > 0 {
-		fmt.Printf("Tables in source but not in target: %v\n", missingTables)
-	}
-
-	if len(extraTables) > 0 {
-		fmt.Printf("Tables in target but not in source: %v\n", extraTables)
-	}
-
 	// Print summary
 	fmt.Println("\n=== Comparison Summary ===")
-	if len(summary.DifferentTables) == 0 {
+	if len(summary.DifferentTables) == 0 && len(extraTables) == 0 && len(summary.DifferentRowCounts) == 0 && len(missingTables) == 0 {
 		fmt.Println("No differences found between the databases.")
 	} else {
-		fmt.Printf("Found differences in %d tables:\n", len(summary.DifferentTables))
+		fmt.Printf("Found differences in %d tables:\n", len(summary.DifferentTables)+len(extraTables)+len(missingTables))
 
 		// First, report tables with row count differences
 		for tableName, counts := range summary.DifferentRowCounts {
