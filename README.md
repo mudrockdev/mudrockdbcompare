@@ -12,3 +12,9 @@ a compare tool for small databases
 currently supported databases: mysql, sqlite
 
 planned to be supported: postgres
+
+# Installation
+
+```console
+go install github.com/mudrockdev/mudrockdbcompare@latest
+```
